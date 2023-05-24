@@ -1,10 +1,11 @@
 import React from "react";
+import dayjs from "dayjs";
 import { Button, Form, Input, message, Space, Table, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getStudents, createStudent } from "../../api/studentsApi.js";
 import { DatePicker } from "antd/lib";
 import { studentCols } from "./helpers.jsx";
-import dayjs from "dayjs";
+import { StudentsTable } from "../../Components/StudentsTable/index.js";
 
 const { Title, Text } = Typography;
 
@@ -50,7 +51,6 @@ export const Students = () => {
         direction={"vertical"}
         align={"start"}
         style={{ width: `100%`, marginBottom: 24 }}
-        block
       >
         <Title>Students</Title>
         {isLoading && <Text>Loading...</Text>}
@@ -59,7 +59,7 @@ export const Students = () => {
             label={"First Name"}
             name={"firstName"}
             required
-            rules={[{ required: true, message: "Please enter the first name" }]}
+            rules={[{ required: true, message: "Please enter a first name" }]}
           >
             <Input />
           </Form.Item>
@@ -67,9 +67,7 @@ export const Students = () => {
             label={"Family Name"}
             name={"familyName"}
             required
-            rules={[
-              { required: true, message: "Please enter the family name" },
-            ]}
+            rules={[{ required: true, message: "Please enter a family name" }]}
           >
             <Input />
           </Form.Item>
@@ -77,7 +75,7 @@ export const Students = () => {
             label={"Birthday"}
             name={"dateOfBirth"}
             required
-            rules={[{ required: true, message: "Please enter the birth date" }]}
+            rules={[{ required: true, message: "Please enter a birth date" }]}
           >
             <DatePicker />
           </Form.Item>
@@ -86,7 +84,7 @@ export const Students = () => {
           </Form.Item>
         </Form>
       </Space>
-      <Table columns={studentCols} dataSource={data} pagination={false} />
+      <StudentsTable dataSource={data} pagination={false} />
     </>
   );
 };
