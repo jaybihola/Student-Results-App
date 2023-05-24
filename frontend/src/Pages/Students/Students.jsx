@@ -4,7 +4,6 @@ import { Button, Form, Input, message, Space, Table, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getStudents, createStudent } from "../../api/studentsApi.js";
 import { DatePicker } from "antd/lib";
-import { studentCols } from "./helpers.jsx";
 import { StudentsTable } from "../../Components/StudentsTable/index.js";
 
 const { Title, Text } = Typography;
@@ -14,7 +13,7 @@ export const Students = () => {
   const { data, isLoading, isError, error } = useQuery(
     ["students"],
     () => getStudents(),
-    { enabled: true, onSuccess: (data) => console.log(data) }
+    { enabled: true }
   );
 
   const { mutate: doCreateStudent } = useMutation(

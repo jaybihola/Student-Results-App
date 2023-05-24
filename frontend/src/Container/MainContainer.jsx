@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export const MainContainer = () => {
   return (
     <>
-      <Layout style={{ height: `100vh` }}>
+      <Layout style={{ minHeight: `100vh` }}>
         <Layout.Header style={{ background: colors.white }}>
           Student Web App
         </Layout.Header>
