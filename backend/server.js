@@ -20,9 +20,9 @@ db.once('open', () => {
 });
 
 app.use('/', indexRouter);
-app.use('/students', studentsRouter);
-app.use('/courses', coursesRouter);
-app.use('/results', resultsRouter);
+app.use('/api/students', studentsRouter);
+app.use('/api/courses', coursesRouter);
+app.use('/api/results', resultsRouter);
 
 app.listen(process.env.PORT || 3030);
 

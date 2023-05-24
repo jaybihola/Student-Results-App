@@ -5,10 +5,7 @@ const Result = require('../models/result');
 const Student = require('../models/student');
 const Course = require('../models/course');
 
-
-
 const { isNetworkError, isMongooseError } = require('../utils/errorCheck');
-
 
 router.get('/', async (req, res) => {
     // return all students as json
