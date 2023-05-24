@@ -43,7 +43,7 @@ export const Students = () => {
 
     doCreateStudent({ firstName, familyName, dateOfBirth });
 
-    form.resetFields();
+    // form.resetFields();
   };
 
   return (

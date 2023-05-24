@@ -32,5 +32,5 @@ CourseList.propTypes = {
       name: PropTypes.string.isRequired,
     })
   ).isRequired,
-  pagination: PropTypes.element,
+  pagination: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 };

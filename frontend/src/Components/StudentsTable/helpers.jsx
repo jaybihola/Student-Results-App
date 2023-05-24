@@ -1,4 +1,7 @@
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(utc);
 
 export const studentCols = [
   {
@@ -16,6 +19,6 @@ export const studentCols = [
     title: "Date of Birth",
     dataIndex: "dateOfBirth",
     key: "dateOfBirth",
-    render: (dob) => dayjs(dob).format("DD/MM/YYYY"),
+    render: (dob) => dayjs(dob).utc().format("DD/MM/YYYY"),
   },
 ];

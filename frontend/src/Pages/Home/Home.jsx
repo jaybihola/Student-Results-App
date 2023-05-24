@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Pagination, Space, Typography } from "antd";
 import { StudentsTable } from "../../Components/StudentsTable/index.js";
 import { useQuery } from "@tanstack/react-query";
-import { getStudents } from "../../api/studentsApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
+import { getStudents } from "../../api/studentsApi.js";
 import { getCourses } from "../../api/coursesApi.js";
+import { getResults } from "../../api/resultsApi.js";
 import { ResultsTable } from "../../Components/ResultsTable/index.js";
 import { selectedData } from "./helpers.js";
 

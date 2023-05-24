@@ -25,5 +25,5 @@ StudentsTable.propTypes = {
       dateOfBirth: PropTypes.string.isRequired,
     })
   ).isRequired,
-  pagination: PropTypes.element,
+  pagination: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 };
