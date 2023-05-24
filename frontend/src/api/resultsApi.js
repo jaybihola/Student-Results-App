@@ -10,6 +10,6 @@ export const getResults = async () => {
 };
 
 export const createResult = async (result) => {
-  const response = await resultsAPI.post("/", course);
+  const response = await resultsAPI.post("/", result);
   return response.data;
 };

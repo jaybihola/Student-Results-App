@@ -9,7 +9,7 @@ import { getCourses } from "../../api/coursesApi.js";
 const { Title, Text } = Typography;
 
 export const Home = () => {
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(3);
   const [studentPage, setStudentPage] = useState(1);
   const [coursePage, setCoursePage] = useState(1);
 

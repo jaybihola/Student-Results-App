@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form, Input, message, Space, Typography } from "antd";
-import { StudentsTable } from "../../Components/StudentsTable/index.js";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createCourse, getCourses } from "../../api/coursesApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
