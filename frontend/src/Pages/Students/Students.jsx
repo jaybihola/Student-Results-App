@@ -28,7 +28,7 @@ export const Students = () => {
 
   const [form] = Form.useForm();
 
-  const handleAddStudent = async (values) => {
+  const handleCreateStudent = async (values) => {
     const firstName = values.firstName;
     const familyName = values.familyName;
     const dateOfBirth = dayjs(values.dateOfBirth).format("YYYY-MM-DD");
@@ -42,6 +42,8 @@ export const Students = () => {
     }
 
     doCreateStudent({ firstName, familyName, dateOfBirth });
+
+    form.resetFields();
   };
 
   return (
@@ -53,7 +55,7 @@ export const Students = () => {
       >
         <Title>Students</Title>
         {isLoading && <Text>Loading...</Text>}
-        <Form form={form} layout={"horizontal"} onFinish={handleAddStudent}>
+        <Form form={form} layout={"horizontal"} onFinish={handleCreateStudent}>
           <Form.Item
             label={"First Name"}
             name={"firstName"}

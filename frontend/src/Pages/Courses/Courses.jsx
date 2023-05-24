@@ -8,29 +8,28 @@ const { Title, Text } = Typography;
 
 export const Courses = () => {
   const queryClient = useQueryClient();
+  const [form] = Form.useForm();
 
-  const { data, isLoading, isError, error } = useQuery(
-    ["courses"],
-    () => getCourses(),
-    { enabled: true, onSuccess: (data) => console.log(data) }
-  );
+  const { data } = useQuery(["courses"], () => getCourses(), {
+    enabled: true,
+    onSuccess: (data) => console.log(data),
+  });
 
   const { mutate: doCreateCourse } = useMutation(
     (values) => createCourse(values),
     {
       onSuccess: async () => {
-        queryClient.invalidateQueries("courses");
+        await queryClient.invalidateQueries("courses");
         message.success("Course added successfully");
       },
     }
   );
 
-  const [form] = Form.useForm();
-
   const handleCreateCourse = async (values) => {
     const courseName = values.courseName;
-    console.log(courseName);
     doCreateCourse({ name: courseName });
+
+    form.resetFields();
   };
 
   return (

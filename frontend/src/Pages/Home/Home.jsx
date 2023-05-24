@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getStudents } from "../../api/studentsApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
 import { getCourses } from "../../api/coursesApi.js";
+import { ResultsTable } from "../../Components/ResultsTable/index.js";
+import { selectedData } from "./helpers.js";
 
 const { Title, Text } = Typography;
 
@@ -12,23 +14,19 @@ export const Home = () => {
   const [pageSize, setPageSize] = useState(3);
   const [studentPage, setStudentPage] = useState(1);
   const [coursePage, setCoursePage] = useState(1);
+  const [resultsPage, setResultsPage] = useState(1);
 
   const { data: studentData } = useQuery(["students"], () => getStudents(), {
     enabled: true,
-    onSuccess: (data) => console.log(data),
   });
 
   const { data: courseData } = useQuery(["courses"], () => getCourses(), {
     enabled: true,
-    onSuccess: (data) => console.log(data),
   });
 
-  const selectedData = (page, pageSize, data) => {
-    if (!data) return [];
-    const start = (page - 1) * pageSize;
-    const end = start + pageSize;
-    return data.slice(start, end);
-  };
+  const { data: resultsData } = useQuery(["results"], () => getResults(), {
+    enabled: true,
+  });
 
   return (
     <Space direction={"vertical"}>
@@ -72,6 +70,21 @@ export const Home = () => {
         }
       />
       <Title level={4}>Results</Title>
+      <ResultsTable
+        dataSource={selectedData(resultsPage, pageSize, resultsData)}
+        pagination={
+          <Pagination
+            total={resultsData ? resultsData.length : 0}
+            onChange={(resultsPage, pageSize) => {
+              setResultsPage(resultsPage);
+              setPageSize(pageSize);
+            }}
+            pageSize={pageSize}
+            current={resultsPage}
+            simple={true}
+          />
+        }
+      />
     </Space>
   );
 };

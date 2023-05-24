@@ -37,7 +37,6 @@ export const Results = () => {
   const [form] = Form.useForm();
 
   const handleCreateResult = async (values) => {
-    console.log("Creating result...");
     const courseId = values.courseId;
     const studentId = values.studentId;
     const score = values.score;
@@ -46,6 +45,8 @@ export const Results = () => {
       studentId: studentId,
       score: score,
     });
+
+    form.resetFields();
   };
 
   return (
