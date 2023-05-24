@@ -1,6 +1,7 @@
+import React from "react";
 import { MainContainer } from "./Container";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ConfigProvider, theme } from "antd";
+import { ConfigProvider } from "antd";
 import { Home, Students, Courses, Results } from "./Pages";
 
 export const colors = {

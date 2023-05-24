@@ -1,5 +1,6 @@
 import React from "react";
-import { List, Pagination, Space, Typography } from "antd";
+import { List, Space, Typography } from "antd";
+import PropTypes from "prop-types";
 
 export const CourseList = ({ dataSource, pagination }) => {
   return (
@@ -25,4 +26,13 @@ export const CourseList = ({ dataSource, pagination }) => {
       </Space>
     </>
   );
+};
+
+CourseList.propTypes = {
+  dataSource: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  pagination: PropTypes.element,
 };

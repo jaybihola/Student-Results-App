@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createCourse, getCourses } from "../../api/coursesApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export const Courses = () => {
   const queryClient = useQueryClient();

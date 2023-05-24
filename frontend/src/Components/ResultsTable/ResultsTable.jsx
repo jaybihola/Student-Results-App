@@ -1,5 +1,7 @@
 import React from "react";
 import { Space, Table } from "antd";
+import PropTypes from "prop-types";
+
 import { resultsCol } from "./helpers.js";
 
 export const ResultsTable = ({ dataSource, pagination }) => {
@@ -15,4 +17,15 @@ export const ResultsTable = ({ dataSource, pagination }) => {
       </Space>
     </>
   );
+};
+
+ResultsTable.propTypes = {
+  dataSource: PropTypes.arrayOf(
+    PropTypes.shape({
+      course: PropTypes.string.isRequired,
+      studentName: PropTypes.string.isRequired,
+      result: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  pagination: PropTypes.element,
 };

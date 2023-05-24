@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pagination, Space, Table, Typography } from "antd";
+import { Pagination, Space, Typography } from "antd";
 import { StudentsTable } from "../../Components/StudentsTable/index.js";
 import { useQuery } from "@tanstack/react-query";
 import { getStudents } from "../../api/studentsApi.js";

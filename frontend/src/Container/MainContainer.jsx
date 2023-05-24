@@ -1,9 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router";
-import { SideMenu } from "../Components/SideMenu/index.js";
-import { Layout } from "antd";
-import { colors } from "../App.jsx";
 import { Link } from "react-router-dom";
+import { Layout } from "antd";
+import { SideMenu } from "../Components/SideMenu/index.js";
+import { colors } from "../App.jsx";
 
 export const MainContainer = () => {
   return (

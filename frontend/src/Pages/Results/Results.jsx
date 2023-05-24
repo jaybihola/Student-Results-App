@@ -4,10 +4,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createResult, getResults } from "../../api/resultsApi.js";
 import { getCourses } from "../../api/coursesApi.js";
 import { getStudents } from "../../api/studentsApi.js";
-import { convert, scoreOptions } from "./helpers.js";
 import { ResultsTable } from "../../Components/ResultsTable/index.js";
+import { convert, scoreOptions } from "./helpers.js";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export const Results = () => {
   const queryClient = useQueryClient();

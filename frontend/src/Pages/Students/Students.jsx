@@ -1,6 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
-import { Button, Form, Input, message, Space, Table, Typography } from "antd";
+import { Button, Form, Input, message, Space, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getStudents, createStudent } from "../../api/studentsApi.js";
 import { DatePicker } from "antd/lib";
@@ -10,11 +10,9 @@ const { Title, Text } = Typography;
 
 export const Students = () => {
   const queryClient = useQueryClient();
-  const { data, isLoading, isError, error } = useQuery(
-    ["students"],
-    () => getStudents(),
-    { enabled: true }
-  );
+  const { data, isLoading } = useQuery(["students"], () => getStudents(), {
+    enabled: true,
+  });
 
   const { mutate: doCreateStudent } = useMutation(
     (values) => createStudent(values),
