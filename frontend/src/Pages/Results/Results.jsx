@@ -1,11 +1,13 @@
 import React from "react";
-import { Button, Form, message, Select, Space, Typography } from "antd";
+import { Button, Form, message, Select, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createResult, getResults } from "../../api/resultsApi.js";
 import { getCourses } from "../../api/coursesApi.js";
 import { getStudents } from "../../api/studentsApi.js";
 import { ResultsTable } from "../../Components/ResultsTable/index.js";
 import { convert, scoreOptions } from "./helpers.js";
+
+import * as S from "./styles.js";
 
 const { Title } = Typography;
 
@@ -51,11 +53,7 @@ export const Results = () => {
 
   return (
     <>
-      <Space
-        direction={"vertical"}
-        align={"start"}
-        style={{ width: `100%`, marginBottom: 24 }}
-      >
+      <S.Container direction={"vertical"} align={"start"}>
         <Title>Results</Title>
         <Form form={form} layout={"horizontal"} onFinish={handleCreateResult}>
           <Form.Item
@@ -86,7 +84,7 @@ export const Results = () => {
             <Button htmlType={"submit"}>Add Result</Button>
           </Form.Item>
         </Form>
-      </Space>
+      </S.Container>
       <ResultsTable dataSource={data || []} />
     </>
   );

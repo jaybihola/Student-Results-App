@@ -1,6 +1,8 @@
 import React from "react";
-import { Space, Table } from "antd";
+import { Table } from "antd";
 import PropTypes from "prop-types";
+
+import * as S from "./styles.js";
 
 import { studentCols } from "./helpers.jsx";
 
@@ -8,13 +10,9 @@ export const StudentsTable = ({ dataSource, pagination }) => {
   return (
     <>
       <Table columns={studentCols} dataSource={dataSource} pagination={false} />
-      <Space
-        direction={"vertical"}
-        align={"center"}
-        style={{ width: `100%`, marginTop: 8 }}
-      >
+      <S.PaginationContainer direction={"vertical"} align={"center"}>
         {pagination}
-      </Space>
+      </S.PaginationContainer>
     </>
   );
 };

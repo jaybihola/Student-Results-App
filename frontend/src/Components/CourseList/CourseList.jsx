@@ -2,6 +2,8 @@ import React from "react";
 import { List, Space, Typography } from "antd";
 import PropTypes from "prop-types";
 
+import * as S from "./styles.js";
+
 export const CourseList = ({ dataSource, pagination }) => {
   return (
     <>
@@ -17,13 +19,9 @@ export const CourseList = ({ dataSource, pagination }) => {
           </List.Item>
         )}
       />
-      <Space
-        direction={"vertical"}
-        style={{ width: `100%`, marginTop: 8 }}
-        align={"center"}
-      >
+      <S.PaginationContainer direction={"vertical"} align={"center"}>
         {pagination}
-      </Space>
+      </S.PaginationContainer>
     </>
   );
 };

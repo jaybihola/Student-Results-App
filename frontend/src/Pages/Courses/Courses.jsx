@@ -1,8 +1,10 @@
 import React from "react";
-import { Button, Form, Input, message, Space, Typography } from "antd";
+import { Button, Form, Input, message, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createCourse, getCourses } from "../../api/coursesApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
+
+import * as S from "./styles.js";
 
 const { Title } = Typography;
 
@@ -34,11 +36,7 @@ export const Courses = () => {
 
   return (
     <>
-      <Space
-        direction={"vertical"}
-        align={"start"}
-        style={{ width: `100%`, marginBottom: 24 }}
-      >
+      <S.Container direction={"vertical"} align={"start"}>
         <Title>Courses</Title>
         <Form form={form} layout={"inline"} onFinish={handleCreateCourse}>
           <Form.Item
@@ -53,7 +51,7 @@ export const Courses = () => {
             <Button htmlType={"submit"}>Add Course</Button>
           </Form.Item>
         </Form>
-      </Space>
+      </S.Container>
       <CourseList dataSource={data || []} />
     </>
   );

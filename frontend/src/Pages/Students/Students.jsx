@@ -1,10 +1,12 @@
 import React from "react";
 import dayjs from "dayjs";
-import { Button, Form, Input, message, Space, Typography } from "antd";
+import { Button, Form, Input, message, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getStudents, createStudent } from "../../api/studentsApi.js";
 import { DatePicker } from "antd/lib";
 import { StudentsTable } from "../../Components/StudentsTable/index.js";
+
+import * as S from "./styles.js";
 
 const { Title, Text } = Typography;
 
@@ -46,11 +48,7 @@ export const Students = () => {
 
   return (
     <>
-      <Space
-        direction={"vertical"}
-        align={"start"}
-        style={{ width: `100%`, marginBottom: 24 }}
-      >
+      <S.Container direction={"vertical"} align={"start"}>
         <Title>Students</Title>
         {isLoading && <Text>Loading...</Text>}
         <Form form={form} layout={"horizontal"} onFinish={handleCreateStudent}>
@@ -82,7 +80,7 @@ export const Students = () => {
             <Button htmlType={"submit"}>Add Student</Button>
           </Form.Item>
         </Form>
-      </Space>
+      </S.Container>
       <StudentsTable dataSource={data} pagination={false} />
     </>
   );
