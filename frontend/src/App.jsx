@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { MainContainer } from "./Container";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ConfigProvider, theme } from "antd";
+import { Home, Students, Courses, Results } from "./Pages";
+
+export const colors = {
+  primary: "#656176",
+  text: "#F3F8F2",
+  success: "#A9E5BB",
+  warning: "#FCF6B1",
+  danger: "#B33951",
+  white: "#ffffff",
+  black: "#1E1E24",
+  lightGray: "rgba(210,210,210,0.37)",
+};
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: colors.primary,
+          colorSuccess: colors.success,
+          colorWarning: colors.warning,
+          colorError: colors.danger,
+          colorText: colors.black,
+          colorBgBase: colors.white,
+          colorLink: colors.primary,
+          borderRadius: 2,
+          fontSize: 16,
+        },
+      }}
+    >
+      <Router>
+        <Routes>
+          <Route path={"/"} element={<MainContainer />}>
+            <Route index element={<Home />} />
+            <Route path="students" element={<Students />} />
+            <Route path="courses" element={<Courses />} />
+            <Route path="results" element={<Results />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ConfigProvider>
+  );
 }
 
-export default App
+export default App;
