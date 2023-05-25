@@ -15,6 +15,7 @@ export const Header = styled(Layout.Header)`
 export const Title = styled.h1`
   color: ${colors.text};
   font-weight: 700;
+  cursor: pointer;
   margin: 0;
 `;
 

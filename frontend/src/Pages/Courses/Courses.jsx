@@ -15,7 +15,6 @@ export const Courses = () => {
 
   const { data } = useQuery(["courses"], () => getCourses(), {
     enabled: true,
-    onSuccess: (data) => console.log(data),
   });
 
   const { mutate: doCreateCourse } = useMutation(

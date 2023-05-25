@@ -3,6 +3,8 @@ const app = express();
 const path = require("path");
 const cors = require("cors");
 const { mongoose } = require("./db/mongoose");
+require("dotenv").config();
+
 const log = console.log;
 
 const studentsRouter = require("./routes/students");
@@ -23,5 +25,7 @@ db.once("open", () => {
 app.use("/api/students", studentsRouter);
 app.use("/api/courses", coursesRouter);
 app.use("/api/results", resultsRouter);
+
+log(process.env.PORT);
 
 app.listen(process.env.PORT || 3030);
