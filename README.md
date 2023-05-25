@@ -2,6 +2,8 @@
 Student Results Management App for ShyftLabs
 
 ### Screenshots
+![swa](https://github.com/jaybihola/Student-Results-App/assets/39041724/48134eef-9553-479e-9268-ce5a6a48edb9)
+
 ### Videos
 https://capture.dropbox.com/lt5mdtdcgmVHPQEf
 
@@ -17,17 +19,22 @@ https://capture.dropbox.com/lt5mdtdcgmVHPQEf
 
 ## Setup Procedure
 1. Clone the repo (or download it) locally
-2. Via terminal, cd into frontend and run
+2. Optional, create .env files (one in frontend folder and one in backend folder)
+  - Inside the backend folder, set the following variable: PORT: <any port> -- if unset, default port of 3030 will be used
+  - Inside the backend folder, set thet the following variable: MONGODB_URI: <uri> -- if unset, default will be used
+  - Inside the frontend folder, set the following variable: VITE_API_URL: <http://localhost:port> where port is the port selected above -- if unset, default url will be used for API calls
+    - Front end will always run on port 5173 when run locally
+3. Via terminal, cd into frontend and run
 ```
 npm install
 npm run build
 ```
-3. Open a second terminal and cd into frontend and run
+4. Open a second terminal and cd into frontend and run
 ```
 npm install
 npm run dev
 ```
-4. Navigate to localhost:3030 to view the app
+5. Navigate to localhost:3030 to view the app
 
 
 Note, if you wish to run the front end on a dev environment, that can also be done using npm run dev. Then, the FE and BE will be decoupled and the react app can be accessed at localhost:5173.
