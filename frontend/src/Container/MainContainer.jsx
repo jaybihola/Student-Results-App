@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router";
 import { Link } from "react-router-dom";
-import { Layout } from "antd";
 import { SideMenu } from "../Components/SideMenu/index.js";
-import { colors } from "../App.jsx";
+
+import * as S from "./styles";
 
 export const MainContainer = () => {
+  const [selectedKeys, setSelectedKeys] = useState([""]);
+
   return (
     <>
-      <Layout style={{ minHeight: `100vh` }}>
-        <Layout.Header style={{ background: colors.white }}>
-          Student Web App
-        </Layout.Header>
-        <Layout.Content style={{ margin: 45 }}>
-          <Layout
-            hasSider={true}
-            style={{ background: colors.white, minHeight: `50vh` }}
-          >
-            <Layout.Sider style={{ background: colors.white, padding: 30 }}>
-              <SideMenu />
-            </Layout.Sider>
-            <Layout.Content style={{ padding: 30 }}>
+      <S.MainLayout>
+        <S.Header>Student Web App</S.Header>
+        <S.OuterContent>
+          <S.InnerLayout hasSider={true}>
+            <S.Sider>
+              <SideMenu
+                selectedKey={selectedKeys}
+                setSelectedKey={setSelectedKeys}
+              />
+            </S.Sider>
+            <S.InnerContent>
               <Outlet />
-            </Layout.Content>
-          </Layout>
-        </Layout.Content>
-        <Layout.Footer style={{ textAlign: `center` }}>
-          Built by Jay Bihola <Link>View Source</Link>
-        </Layout.Footer>
-      </Layout>
+            </S.InnerContent>
+          </S.InnerLayout>
+        </S.OuterContent>
+        <S.Footer>
+          Built by Jay Bihola (
+          <Link to={"https://github.com/jaybihola/Student-Results-App"}>
+            View Source
+          </Link>
+          )
+        </S.Footer>
+      </S.MainLayout>
     </>
   );
 };

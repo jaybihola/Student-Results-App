@@ -5,8 +5,6 @@ const cors = require("cors");
 const { mongoose } = require("./db/mongoose");
 const log = console.log;
 
-// get routers
-const indexRouter = require("./routes/index");
 const studentsRouter = require("./routes/students");
 const coursesRouter = require("./routes/courses");
 const resultsRouter = require("./routes/results");

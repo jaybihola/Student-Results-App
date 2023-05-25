@@ -21,7 +21,7 @@ export const Students = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries("students");
-        message.success("Student added successfully");
+        return message.success("Student added successfully");
       },
     }
   );

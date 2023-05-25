@@ -11,7 +11,7 @@ export const CourseList = ({ dataSource, pagination }) => {
         itemLayout={"vertical"}
         dataSource={dataSource}
         renderItem={(item) => (
-          <List.Item>
+          <List.Item key={item.name}>
             <Space direction={"horizontal"}>
               <Typography.Text strong>Course:</Typography.Text>
               <Typography.Text>{item.name}</Typography.Text>

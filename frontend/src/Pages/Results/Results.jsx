@@ -31,7 +31,7 @@ export const Results = () => {
     {
       onSuccess: async () => {
         await queryClient.invalidateQueries("results");
-        message.success("Result added successfully");
+        return message.success("Result added successfully");
       },
     }
   );

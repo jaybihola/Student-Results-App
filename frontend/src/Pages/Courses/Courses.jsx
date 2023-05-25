@@ -22,7 +22,7 @@ export const Courses = () => {
     {
       onSuccess: async () => {
         await queryClient.invalidateQueries("courses");
-        message.success("Course added successfully");
+        return message.success("Course added successfully");
       },
     }
   );

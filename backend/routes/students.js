@@ -3,7 +3,7 @@ const router = express.Router();
 const log = console.log;
 const Student = require("../models/student");
 
-const { isNetworkError, isMongooseError } = require("../utils/errorCheck");
+const { isMongooseError } = require("../utils/errorCheck");
 
 router.get("/", async (req, res) => {
   // return all students as json
