@@ -9,7 +9,6 @@ export const studentCols = [
     title: "First Name",
     dataIndex: "firstName",
     key: "firstName",
-    render: (text) => <a>{text}</a>,
   },
   {
     title: "Family Name",

@@ -3,17 +3,7 @@ import { MainContainer } from "./Container";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import { Home, Students, Courses, Results } from "./Pages";
-
-export const colors = {
-  primary: "#656176",
-  text: "#F3F8F2",
-  success: "#A9E5BB",
-  warning: "#FCF6B1",
-  danger: "#B33951",
-  white: "#ffffff",
-  black: "#1E1E24",
-  lightGray: "rgba(210,210,210,0.37)",
-};
+import { colors } from "./utils/colors.js";
 
 function App() {
   return (

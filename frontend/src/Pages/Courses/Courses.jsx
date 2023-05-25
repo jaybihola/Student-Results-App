@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Form, Input, message, Typography } from "antd";
+import { Button, Divider, Form, Input, message, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createCourse, getCourses } from "../../api/coursesApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
 
 import * as S from "./styles.js";
+import { colors } from "../../utils/colors.js";
 
 const { Title } = Typography;
 
@@ -37,7 +38,11 @@ export const Courses = () => {
   return (
     <>
       <S.Container direction={"vertical"} align={"start"}>
-        <Title>Courses</Title>
+        <Title level={2} style={{ color: `${colors.primary}` }}>
+          Courses
+        </Title>
+        <Divider />
+        <Title level={4}>Add a new course</Title>
         <Form form={form} layout={"inline"} onFinish={handleCreateCourse}>
           <Form.Item
             label={"Course Name"}
@@ -52,6 +57,8 @@ export const Courses = () => {
           </Form.Item>
         </Form>
       </S.Container>
+      <Divider />
+      <Title level={4}>All Courses</Title>
       <CourseList dataSource={data || []} />
     </>
   );

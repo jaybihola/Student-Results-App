@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import { Layout } from "antd";
-import { colors } from "../App.jsx";
+import { colors } from "../utils/colors.js";
+import { device } from "../utils/devices.js";
 
 export const MainLayout = styled(Layout)`
   min-height: 100vh;
 `;
 
 export const Header = styled(Layout.Header)`
-  background: ${colors.white};
+  background: ${colors.darkBackground};
+  text-align: center;
+`;
+
+export const Title = styled.h1`
+  color: ${colors.white};
+  font-weight: 700;
+  margin: 0;
 `;
 
 export const InnerLayout = styled(Layout)`
@@ -16,11 +24,27 @@ export const InnerLayout = styled(Layout)`
 `;
 
 export const Sider = styled(Layout.Sider)`
-  background: ${colors.white};
+  background-color: ${colors.white};
 `;
 
 export const OuterContent = styled(Layout.Content)`
-  margin: 40px;
+  @media (${device.mobileS}) {
+    margin: 3vh 3vw;
+  }
+
+  @media (${device.mobileM}) {
+    margin: 4vh 4vw;
+  }
+
+  @media (${device.tablet}) {
+    margin: 5vh 5vw;
+    padding: 30px;
+  }
+
+  @media (${device.laptop}) {
+    margin: 5vh 5vw;
+    padding: 30px;
+  }
 `;
 
 export const InnerContent = styled(Layout.Content)`

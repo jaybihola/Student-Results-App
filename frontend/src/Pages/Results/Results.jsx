@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, message, Select, Typography } from "antd";
+import { Button, Divider, Form, message, Select, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createResult, getResults } from "../../api/resultsApi.js";
 import { getCourses } from "../../api/coursesApi.js";
@@ -8,6 +8,7 @@ import { ResultsTable } from "../../Components/ResultsTable/index.js";
 import { convert, scoreOptions } from "./helpers.js";
 
 import * as S from "./styles.js";
+import { colors } from "../../utils/colors.js";
 
 const { Title } = Typography;
 
@@ -54,8 +55,12 @@ export const Results = () => {
   return (
     <>
       <S.Container direction={"vertical"} align={"start"}>
-        <Title>Results</Title>
-        <Form form={form} layout={"horizontal"} onFinish={handleCreateResult}>
+        <Title level={2} style={{ color: `${colors.primary}` }}>
+          Results
+        </Title>
+        <Divider />
+        <Title level={4}>Add New Result</Title>
+        <Form form={form} layout={"inline"} onFinish={handleCreateResult}>
           <Form.Item
             label={"Course Name"}
             name={"courseId"}
@@ -85,6 +90,8 @@ export const Results = () => {
           </Form.Item>
         </Form>
       </S.Container>
+      <Divider />
+      <Title level={4}>All Results</Title>
       <ResultsTable dataSource={data || []} />
     </>
   );

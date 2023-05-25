@@ -11,7 +11,9 @@ export const MainContainer = () => {
   return (
     <>
       <S.MainLayout>
-        <S.Header>Student Web App</S.Header>
+        <S.Header>
+          <S.Title>Student Web App</S.Title>
+        </S.Header>
         <S.OuterContent>
           <S.InnerLayout hasSider={true}>
             <S.Sider>

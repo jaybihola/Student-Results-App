@@ -1,18 +1,19 @@
 import React from "react";
 import dayjs from "dayjs";
-import { Button, Form, Input, message, Typography } from "antd";
+import { Button, Divider, Form, Input, message, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getStudents, createStudent } from "../../api/studentsApi.js";
 import { DatePicker } from "antd/lib";
 import { StudentsTable } from "../../Components/StudentsTable/index.js";
 
 import * as S from "./styles.js";
+import { colors } from "../../utils/colors.js";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export const Students = () => {
   const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery(["students"], () => getStudents(), {
+  const { data } = useQuery(["students"], () => getStudents(), {
     enabled: true,
   });
 
@@ -43,15 +44,18 @@ export const Students = () => {
 
     doCreateStudent({ firstName, familyName, dateOfBirth });
 
-    // form.resetFields();
+    form.resetFields();
   };
 
   return (
     <>
       <S.Container direction={"vertical"} align={"start"}>
-        <Title>Students</Title>
-        {isLoading && <Text>Loading...</Text>}
-        <Form form={form} layout={"horizontal"} onFinish={handleCreateStudent}>
+        <Title level={2} style={{ color: `${colors.primary}` }}>
+          Students
+        </Title>
+        <Divider />
+        <Title level={4}>Add New Student</Title>
+        <Form form={form} layout={"inline"} onFinish={handleCreateStudent}>
           <Form.Item
             label={"First Name"}
             name={"firstName"}
@@ -81,6 +85,8 @@ export const Students = () => {
           </Form.Item>
         </Form>
       </S.Container>
+      <Divider />
+      <Title level={4}>All Students</Title>
       <StudentsTable dataSource={data} pagination={false} />
     </>
   );

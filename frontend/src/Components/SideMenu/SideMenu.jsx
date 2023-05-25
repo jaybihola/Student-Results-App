@@ -19,9 +19,9 @@ export const SideMenu = ({ selectedKey, setSelectedKey }) => {
         items={menuItems}
         onClick={(e) => {
           onClickMenu(e.key);
-          setSelectedKey(e.key);
+          setSelectedKey([e.key]);
         }}
-        style={{ height: `100%` }}
+        style={{ height: `100%`, padding: 8 }}
       />
     </>
   );
