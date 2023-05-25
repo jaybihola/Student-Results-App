@@ -35,6 +35,9 @@ npm install
 npm run dev
 ```
 5. Navigate to localhost:3030 to view the app
+  
+## Troubleshooting
+Note that on Windows, localhost may not work for MongoDB connection. There are two options in this case: set the MONGODB_URI to a custom value or to the default value of 'mongodb://0.0.0.0/studentdata' (instead of localhost) or change the code to use that line as the default.
 
 
 Note, if you wish to run the front end on a dev environment, that can also be done using npm run dev. Then, the FE and BE will be decoupled and the react app can be accessed at localhost:5173.
