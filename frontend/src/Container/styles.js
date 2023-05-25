@@ -38,11 +38,11 @@ export const OuterContent = styled(Layout.Content)`
   }
 
   @media (${device.tablet}) {
-    margin: 5vh 5vw;
+    margin: 4vh 4vw;
     padding: 30px;
   }
 
-  @media (${device.laptop}) {
+  @media (${device.desktopL}) {
     margin: 5vh 5vw;
     padding: 30px;
   }

@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const apiURL = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL + "/results"
+  : undefined;
+
 const resultsAPI = axios.create({
-  baseURL: "http://localhost:3030/api/results",
+  baseURL: apiURL || "http://localhost:3030/api/results",
 });
 
 export const getResults = async () => {

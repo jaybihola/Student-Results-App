@@ -5,9 +5,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getStudents, createStudent } from "../../api/studentsApi.js";
 import { DatePicker } from "antd/lib";
 import { StudentsTable } from "../../Components/StudentsTable/index.js";
+import { addKeyToData } from "../../utils/addKeyToData.js";
+import { colors } from "../../utils/colors.js";
 
 import * as S from "./styles.js";
-import { colors } from "../../utils/colors.js";
 
 const { Title } = Typography;
 
@@ -30,8 +31,8 @@ export const Students = () => {
   const [form] = Form.useForm();
 
   const handleCreateStudent = async (values) => {
-    const firstName = values.firstName;
-    const familyName = values.familyName;
+    const firstName = values.firstName.trim();
+    const familyName = values.familyName.trim();
     const dateOfBirth = dayjs(values.dateOfBirth).format("YYYY-MM-DD");
     const curr = new Date();
     const diff = curr.getTime() - new Date(dateOfBirth).getTime();
@@ -87,7 +88,10 @@ export const Students = () => {
       </S.Container>
       <Divider />
       <Title level={4}>All Students</Title>
-      <StudentsTable dataSource={data} pagination={false} />
+      <StudentsTable
+        dataSource={data ? addKeyToData(data) : []}
+        pagination={false}
+      />
     </>
   );
 };

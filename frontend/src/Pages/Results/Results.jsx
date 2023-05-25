@@ -5,6 +5,7 @@ import { createResult, getResults } from "../../api/resultsApi.js";
 import { getCourses } from "../../api/coursesApi.js";
 import { getStudents } from "../../api/studentsApi.js";
 import { ResultsTable } from "../../Components/ResultsTable/index.js";
+import { addKeyToData } from "../../utils/addKeyToData.js";
 import { convert, scoreOptions } from "./helpers.js";
 
 import * as S from "./styles.js";
@@ -92,7 +93,7 @@ export const Results = () => {
       </S.Container>
       <Divider />
       <Title level={4}>All Results</Title>
-      <ResultsTable dataSource={data || []} />
+      <ResultsTable dataSource={data ? addKeyToData(data) : []} />
     </>
   );
 };

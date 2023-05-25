@@ -3,9 +3,9 @@ import { Button, Divider, Form, Input, message, Typography } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createCourse, getCourses } from "../../api/coursesApi.js";
 import { CourseList } from "../../Components/CourseList/CourseList.jsx";
-
-import * as S from "./styles.js";
+import { addKeyToData } from "../../utils/addKeyToData.js";
 import { colors } from "../../utils/colors.js";
+import * as S from "./styles.js";
 
 const { Title } = Typography;
 
@@ -28,7 +28,7 @@ export const Courses = () => {
   );
 
   const handleCreateCourse = async (values) => {
-    const courseName = values.courseName;
+    const courseName = values.courseName.trim();
     doCreateCourse({ name: courseName });
 
     form.resetFields();
@@ -58,7 +58,7 @@ export const Courses = () => {
       </S.Container>
       <Divider />
       <Title level={4}>All Courses</Title>
-      <CourseList dataSource={data || []} />
+      <CourseList dataSource={data ? addKeyToData(data) : []} />
     </>
   );
 };
