@@ -13,7 +13,7 @@ export const Header = styled(Layout.Header)`
 `;
 
 export const Title = styled.h1`
-  color: ${colors.white};
+  color: ${colors.text};
   font-weight: 700;
   margin: 0;
 `;
